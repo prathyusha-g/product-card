@@ -1,0 +1,156 @@
+<html>
+<center>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+        h1{
+            background-image: url("http://arkansasconsumer.org/wp-content/uploads/2015/04/Electronic-Products1.jpg");
+        }
+            .cardStyle{
+                max-width: 300;
+                max-height: 300;
+                border-radius:10PX;
+                background-color: gray;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+                text-align: center;
+                }
+            /* .closebtn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: red;
+            font-size: 35px;
+            cursor: pointer;
+        } */
+        .likebutton {
+            float: left;
+            padding-bottom: 10px;
+            
+            height: 50;
+            width: 50;
+        }
+        .dislikebutton {
+            float: left;
+            padding-bottom: 10px;
+            height: 50;
+            width: 50;
+        }
+        </style>
+    </head>
+    <body style="background-image: http://arkansasconsumer.org/wp-content/uploads/2015/04/Electronic-Products1.jpg">
+        <center>
+            <h1 style="color: red;font-size: 45px;font-family: sans-serif;text-shadow: 2px 2px black">My Product Card</h1>
+           
+            <hr>
+            <br>
+       <strong style="color: blue;font-size: 25px"> NAME:<input type="text" id="p_name"></strong><br><br>
+        <strong style="color: blue;font-size: 25px">ID:<input type="text" id="p_id"></strong><br><br>
+       <strong style="color: blue;font-size: 25px">PRICE:<input type="text" id="p_price"></strong><br><br>
+       <strong style="color: blue;font-size: 25px"> URL:<input type="text" id="p_img"  height="100px" width="150px"></strong><br/><br/>
+        <input id="show" type="button" value="Submit" onclick=display()>
+    </center>
+        <!-- <img id="like"> -->
+        <div id="displaycard" >
+        
+        </div>
+    </body>
+    <center>
+    <script>
+    //onmouseover="zoomImg(this)" onmouseout="normalImg(this)"
+    function display()
+    {
+            event.preventDefault();
+            var divison=document.getElementById("displaycard");
+            var name=document.getElementById("p_name");
+            var id=document.getElementById("p_id");
+            var price=document.getElementById("p_price");
+            var simage=document.getElementById("p_img");
+
+            var card = document.createElement("div");
+            card.classList.add("cardStyle");
+            card.id="displaycard"+Math.random();
+            divison.appendChild(card);
+            
+            var image = document.createElement("img");
+            image.setAttribute("src",simage.value);
+            image.setAttribute("height","100px");
+            image.setAttribute("width","150px");
+            card.appendChild(image);
+
+            image.onmouseover = function(event) {
+                event.currentTarget.height="300";
+                event.currentTarget.width="300";
+            }
+            image.onmouseout = function(event) {
+                event.currentTarget.height="100";
+                event.currentTarget.width="150";
+            }
+            //image.onmouseover = function(e) {
+                //zoomImg(e);
+            //}
+            // image.onmouseover= zoomImg;
+            var paraname = document.createElement("p");
+            var node = document.createTextNode(name.value);
+            paraname.appendChild(node);
+            card.appendChild(paraname);
+            
+            var paraname2 = document.createElement("p");
+            var node = document.createTextNode(id.value);
+            paraname2.appendChild(node);
+            card.appendChild(paraname2);
+
+            var paraname3=document.createElement("p");
+            var node=document.createTextNode(price.value);
+            paraname3.appendChild(node);
+            card.appendChild(paraname3);
+
+            var hold=document.createElement("span");
+            var likebttn=document.createElement("img");
+            likebttn.setAttribute("src","https://static.adweek.com/adweek.com-prod/wp-content/uploads/sites/2/2013/07/LikeButton304.jpg");
+            likebttn.setAttribute("height","30");
+            likebttn.setAttribute("width","30");
+            hold.appendChild(likebttn);
+            var likespan=document.createElement("span");
+            hold.appendChild(likespan);
+            hold.classList.add("likebutton");
+            card.appendChild(hold);
+            var likes=0;
+            likebttn.onclick=function(l){
+                likes++;
+                l.currentTarget.parentNode.lastChild.innerHTML=likes;
+            } 
+
+            var hold1=document.createElement("span");
+            var dislikebttn=document.createElement("img");
+            dislikebttn.setAttribute("src","https://i.kinja-img.com/gawker-media/image/upload/s--9V5t0E6n--/c_scale,f_auto,fl_progressive,q_80,w_800/1441999542577561233.jpg");
+            dislikebttn.setAttribute("height","30");
+            dislikebttn.setAttribute("width","30");
+            hold1.appendChild(dislikebttn);
+            var dislikespan=document.createElement("span");
+            hold1.appendChild(dislikespan);
+            hold1.classList.add("dislikebutton");
+            card.appendChild(hold1);
+            var dislikes=0;
+            dislikebttn.onclick=function(l){
+                dislikes++;
+                l.currentTarget.parentNode.lastChild.innerHTML=dislikes;
+            }    
+
+            var bttn=document.createElement("button");
+            var node=document.createTextNode("CLOSE");
+            bttn.appendChild(node);
+            card.appendChild(bttn);
+            bttn.onclick= function test(e) {
+            document.getElementById(e.target.parentNode.id).remove();
+            }
+    }
+            // function zoomImg(x)
+            // {
+            //     alert("working");
+            // };
+           
+           
+    </script>
+</center>
+</center>
+</html>
