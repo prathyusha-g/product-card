@@ -1,34 +1,4 @@
-/*var laptop={
-	brand:"Dell",
-	color:"Grey",
-	price:35000,
-	processor:"intel i3",
-	ram:"4GB",
-	createapp:function(){
-		console.log("Creating an application");
-	},
-	shopping:function(){
-		console.log("Online shopping is also been done");
-	},
-}
-laptop.createapp();
-console.log(laptop.brand);*/
-/*
-var institute={
-	institutename:"Digital Lync",
-	location:"Khajaguda",
-	studentname:"Prathyusha",
-	qualification:"intermediate",
-	learner:function(){
-		console.log("Students must learn course in time");
-	},
-	trainer:function(){
-		console.log("Trainer explains the course by giving task");
-	},
-}
-console.log(institute.institutename);
-console.log(institute.location);
-institute.learner();*/
+
 
 var AC={
 	brand : "Bajaj",
